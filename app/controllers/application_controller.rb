@@ -7,5 +7,6 @@ class ApplicationController < ActionController::Base
 
   def current_team
     Team.find(params[:team_id]) if params[:team_id].present?
+  http_basic_authenticate_with name: 'mlabs', password: 'mL4b$nice'
   end
 end
