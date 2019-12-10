@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
 
   include HttpAuthConcern
-  http_basic_authenticate_with name: 'username', password: 'password'
-  
+  http_basic_authenticate_with name: 'mlabs', password: 'mL4b$nice'
+
   protect_from_forgery with: :exception
 
   helper_method :current_team
