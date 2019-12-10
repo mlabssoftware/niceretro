@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   include HttpAuthConcern
   http_basic_authenticate_with name: 'username', password: 'password'
-end
+  
   protect_from_forgery with: :exception
 
   helper_method :current_team
