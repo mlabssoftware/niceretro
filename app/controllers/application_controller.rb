@@ -13,3 +13,4 @@ class ApplicationController < ActionController::Base
     Team.find(params[:team_id]) if params[:team_id].present?
   end
 end
+
