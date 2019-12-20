@@ -4,7 +4,7 @@ COPY . /code/
 
 WORKDIR /code
 
-RUN gem install bundler
+RUN gem install bundler -v 2.0.2
 
 RUN bundle install
 
