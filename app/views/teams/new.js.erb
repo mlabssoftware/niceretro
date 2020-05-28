@@ -12,7 +12,7 @@ if (teamField.length) {
   locastyle.dismiss.init();
 } else {
   teamsList.append(
-    '<div class="ls-list" data-team-id="<%= @team.id %>">' +
+    '<div class="ls-list">' +
       '<%= form_for @team, remote: true, html: { class: "ls-form" } do |f| %>' +
         '<header class="ls-list-header">' +
           '<div class="ls-list-title col-md-4">' +

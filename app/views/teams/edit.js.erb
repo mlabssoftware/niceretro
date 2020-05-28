@@ -1,0 +1,44 @@
+var teamsList = $('#teams-list');
+var teamItem = teamsList.find('[data-team-id="' + <%= @team.id %> + '"]');
+var teamOtherItem = teamsList.find('.new-team-input');
+
+if (teamOtherItem.length) {
+  $('.ls-alert-info').remove();
+  $('.ls-title-intro').after(
+    '<div class="ls-alert-info ls-dismissable">' +
+      '<span data-ls-module="dismiss" class="ls-dismiss">&times;</span>' +
+      '<strong>Atenção:</strong> Você possui um campo de cadastro de time na tela. Preencha o mesmo.' +
+    '</div>'
+  );
+  locastyle.dismiss.init();
+} else {
+  teamItem.hide();
+  teamItem.after(
+    '<%= form_for @team, remote: true, html: { class: "ls-form" } do |f| %>' +
+      '<header class="ls-list-header">' +
+        '<div class="ls-list-title col-md-4">' +
+          '<div class="ls-label" style="margin: 0;">' +
+            '<%= f.text_field :name, placeholder: "Coloque o nome do time aqui", class: "new-team-input", required: true %>' +
+          '</div>' +
+        '</div>' +
+        '<div class="col-md-3 col-md-offset-5 ls-txt-right">' +
+          '<%= f.submit "Salvar", class: "ls-btn ls-btn-primary" %>' +
+          '<%= link_to "Cancelar", "#", { class: "ls-btn cancel-edit-team" } %>' +
+        '</div>' +
+      '</header>' +
+    '<% end %>'
+  );
+
+  function cancelEditteam() {
+    teamItem.parent().find('.cancel-edit-team').on('click', function(e) {
+      e.preventDefault();
+
+      var lsList = $(this).closest('.ls-list');
+
+      lsList.find('.ls-form').remove();
+      lsList.find('header').show();
+    });
+  }
+
+  cancelEditteam();
+}

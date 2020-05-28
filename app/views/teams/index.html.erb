@@ -4,11 +4,12 @@
   <div id="teams-list">
     <% @teams.each do |team| %>
       <div class="ls-list">
-        <header class="ls-list-header">
+        <header class="ls-list-header" data-team-id="<%= team.id %>">
           <div class="ls-list-title col-md-4">
             <%= link_to team.name, team_retrospectives_path(team.id) %>
           </div>
           <div class="col-md-3 col-md-offset-5 ls-txt-right">
+            <%= link_to t('button.edit'), edit_team_path(team.id), remote: true, class: 'ls-btn-secondary ls-btn-sm', title: t('button.edit') %>
             <%= link_to t('.admin'), team_retrospectives_path(team.id), { class: 'ls-btn-primary ls-btn-sm' } %>
           </div>
         </header>
