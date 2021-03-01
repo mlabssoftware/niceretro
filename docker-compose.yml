@@ -1,4 +1,7 @@
-version: '2'
+version: "3.6"
+x-default: &default
+  stdin_open: true
+  tty: true
 services:
   db:
     image: postgres
@@ -8,9 +11,13 @@ services:
       POSTGRES_USER: 'postgres'
       POSTGRES_DB: 'ml-retro_development'
       POSTGRES_PASSWORD: '-mlretro2019'
+    networks:
+      - niceretro
   web:
+    <<: *default
     build: .
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    working_dir: /code
+    command: "bundle exec rails s -p 3000 -b 0.0.0.0 --pid /tmp/rails_server.pid"
     environment:
       NICE_USER: mlabs
       NICE_PASSWORD: secret
@@ -18,5 +25,13 @@ services:
       - .:/code
     ports:
       - "3000:3000"
+    links:
+      - db
     depends_on:
       - db
+    networks:
+      - niceretro
+networks:
+  niceretro:
+    name: niceretro
+    attachable: true
