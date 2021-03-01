@@ -16,6 +16,7 @@ services:
   web:
     <<: *default
     build: .
+    entrypoint: ./entrypoint-dev.sh
     working_dir: /code
     command: "bundle exec rails s -p 3000 -b 0.0.0.0 --pid /tmp/rails_server.pid"
     environment:
