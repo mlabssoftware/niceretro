@@ -22,6 +22,7 @@ services:
     environment:
       NICE_USER: mlabs
       NICE_PASSWORD: secret
+      DB_DATABASE: ml-retro_development
     volumes:
       - .:/code
     ports:

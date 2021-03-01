@@ -8,7 +8,7 @@ default: &default
 
 development:
   <<: *default
-  database: ml-retro_development
+  database: <%= ENV.fetch('DB_DATABASE', 'lw-retro_development') %>
 
 test:
   <<: *default
