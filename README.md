@@ -18,6 +18,16 @@ as point any team's doubts.
 * rake db:migrate
 * rake db:seed
 
+## Environment variables
+
+#### Database
+* DB_HOST - database host
+* DB_USER - database user name
+* DB_PASSWORD - database password
+
+#### System access
+* NICE_USER - system user name
+* NICE_PASSWORD - system user password
 
 # LICENSE
 
