@@ -24,6 +24,7 @@ as point any team's doubts.
 * DB_HOST - database host
 * DB_USER - database user name
 * DB_PASSWORD - database password
+* DB_DATABASE - database name
 
 #### System access
 * NICE_USER - system user name
