@@ -1,4 +1,6 @@
-FROM ruby:2.3.0
+FROM rubylang/ruby:2.3.8-bionic
+
+RUN apt-get update && apt-get install -y gcc cpp g++ make libpq-dev
 
 COPY . /code/
 

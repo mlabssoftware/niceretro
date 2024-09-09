@@ -11,3 +11,6 @@
 /log/*
 !/log/.keep
 /tmp
+.terraform
+!.terraform.lock.hcl
+*terraform.tfstate*
