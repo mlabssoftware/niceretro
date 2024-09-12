@@ -8,12 +8,12 @@ as point any team's doubts.
 ## Requisites
 
 * Ruby 2.3
-* PostgreSQL 11.5
+* PostgreSQL 16
 
 
 ## Installation
-* apt install bundler || apt install bundler -v 1.17.1
-* bundle install || bundle _1.17_1_ install
+* apt install bundler || apt install bundler -v 2.0.2
+* bundle install || bundle _2.0.2_ install
 * rake db:create
 * rake db:migrate
 * rake db:seed
@@ -29,6 +29,10 @@ as point any team's doubts.
 #### System access
 * NICE_USER - system user name
 * NICE_PASSWORD - system user password
+
+## Terraform
+
+Terraform code available at `infra/` ( aws-cli required )
 
 # LICENSE
 
